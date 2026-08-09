@@ -27,7 +27,7 @@ struct Stats {
     std::string name;
     T value;
 };
-std::vector<Stats<std::string>> statsvars;
+inline std::vector<Stats<std::string>> statsvars;
 
 template<typename T>
 struct inventory {
@@ -35,7 +35,7 @@ struct inventory {
     T value;
     Texture2D icon;
 };
-std::vector<inventory<std::string>> inventoryvars;
+inline std::vector<inventory<std::string>> inventoryvars;
 
 struct ShopStr {
     int in_stock;

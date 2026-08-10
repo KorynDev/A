@@ -96,22 +96,33 @@ namespace Inventory_n {
 
 #ifndef CLASSES
 
-class World {};
+class World {
+public:
+
+private:
+};
 
 class Player {
 public:
     float x;
     float y;
+    float speed;
+    int max_hearts = 10;
 
-    float health;
-    float ratio;
-
-    void player_movement();
+    void player_movement(float dt);
     void player_health();
 
+    void draw_health_bar();
+
     float GetGravity() const { return gravity_p; }
+    float GetHealth() const { return health; }
+    float GetRatio() const { return ratio; }
+    float GetCombined() const { return combined; }
 private:
     float gravity_p = 198.4;
+    float health;
+    float ratio;
+    float combined;
 };
 
 class Inventory {
@@ -154,6 +165,7 @@ inline Texture2D food_001;
 inline Texture2D red_coin_002;
 inline Texture2D apple_003;
 inline Texture2D gold_coin_004;
+inline Texture2D heart_005;
 
 #endif
 
@@ -164,6 +176,7 @@ inline void loadalltextures() {
     red_coin_002 = LoadTexture("assets/icons/red-coin-002.png");
     apple_003 = LoadTexture("assets/icons/apple-003.png");
     gold_coin_004 = LoadTexture("assets/icons/gold-coin-004.png");
+    heart_005 = LoadTexture("assets/icons/heart-005.png");
 }
 
 inline void unloadalltextures() {
@@ -171,6 +184,7 @@ inline void unloadalltextures() {
     UnloadTexture(red_coin_002);
     UnloadTexture(apple_003);
     UnloadTexture(gold_coin_004);
+    UnloadTexture(heart_005);
 }
 
 #endif

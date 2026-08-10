@@ -19,11 +19,11 @@ void Player::player_movement(float dt) {
 
 void Player::draw_health_bar() {
     // 1. Draw your background placeholder
-    DrawRectangle(0, 650, 350, 40, BROWN);
+    DrawRectangle(0, 630, 360, 40, BROWN);
     
     // 2. Set spacing variables
-    float startX = 10.0f;    // Left padding from the edge of the screen
-    float startY = 638.0f;   // Top position (slightly adjusted so 64x64 fits beautifully)
+    float startX = 2.0f;    // Left padding from the edge of the screen
+    float startY = 618.0f;   // Top position (slightly adjusted so 64x64 fits beautifully)
     float spacing = 32.0f;   // Horizontal gap between each heart (Minecraft hearts overlap slightly)
 
     // 3. Single loop to draw hearts horizontally

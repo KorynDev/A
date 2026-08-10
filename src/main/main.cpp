@@ -9,17 +9,10 @@ int main() {
     SetTargetFPS(W_FPS);
 
     while (!WindowShouldClose()) {
+        float dt = GetFrameTime();
         BeginDrawing();
         ClearBackground(W_COLOR);
         plr.draw_health_bar();
-        DrawTexturePro(
-            heart_005,
-            Rectangle{0, 0, (float)heart_005.width, (float)heart_005.height},
-            Rectangle{W_WIDTH / W_CALC_WIDTH, W_HEIGHT / W_CALC_HEIGHT, 128, 128},
-            Vector2{0, 0},
-            0.0f,
-            WHITE
-        );
         EndDrawing();
     }
 

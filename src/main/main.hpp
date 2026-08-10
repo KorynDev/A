@@ -108,11 +108,13 @@ public:
     float y;
     float speed;
     int max_hearts = 10;
+    float max_health = 100;
 
     void player_movement(float dt);
     void player_health();
 
     void draw_health_bar();
+    void take_damage(float health);
 
     float GetGravity() const { return gravity_p; }
     float GetHealth() const { return health; }
@@ -166,6 +168,8 @@ inline Texture2D red_coin_002;
 inline Texture2D apple_003;
 inline Texture2D gold_coin_004;
 inline Texture2D heart_005;
+inline Texture2D shattered_heart_005;
+inline Texture2D half_heart_005;
 
 #endif
 
@@ -177,6 +181,8 @@ inline void loadalltextures() {
     apple_003 = LoadTexture("assets/icons/apple-003.png");
     gold_coin_004 = LoadTexture("assets/icons/gold-coin-004.png");
     heart_005 = LoadTexture("assets/icons/heart-005.png");
+    shattered_heart_005 = LoadTexture("assets/icons/shattered-heart-005.png");
+    half_heart_005 = LoadTexture("assets/icons/half-heart-005.png");
 }
 
 inline void unloadalltextures() {
@@ -185,6 +191,8 @@ inline void unloadalltextures() {
     UnloadTexture(apple_003);
     UnloadTexture(gold_coin_004);
     UnloadTexture(heart_005);
+    UnloadTexture(shattered_heart_005);
+    UnloadTexture(half_heart_005);
 }
 
 #endif

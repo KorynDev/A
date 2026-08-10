@@ -12,6 +12,9 @@
 #define W_WIDTH 1280
 #define W_HEIGHT 720
 
+#define W_CALC_WIDTH 2 - 45
+#define W_CALC_HEIGHT 2 - 80
+
 #define W_TITLE "A"
 #define W_FPS 144
 
@@ -21,6 +24,12 @@
 #define T_HEIGHT 16
 
 #ifndef STRUCTS
+
+struct Animation {
+    int first_frame;
+    int last_frame;
+    int cur;
+};
 
 template<typename T>
 struct Stats {
@@ -71,17 +80,18 @@ namespace Inventory_n {
 #endif
 
 #ifndef INLINE_FUNCTIONS
-
-template<typename T>
-inline void AddVar(std::string var, T val) {
-    Eco::RegisterNewVar({.name = var, .value = val});
-}
-
-template<typename T>
-inline void AddInvItem(std::string varinv, T val, Texture2D icon) {
-    Inventory_n::RegisterNewInvItem({.name = varinv, .value = val, .icon = icon});
-}
-
+    #ifndef ECONOMY
+        template<typename T>
+        inline void AddVar(std::string var, T val) {
+            Eco::RegisterNewVar({.name = var, .value = val});
+        }
+    #endif
+    #ifndef INVENTORY
+        template<typename T>
+        inline void AddInvItem(std::string varinv, T val, Texture2D icon) {
+            Inventory_n::RegisterNewInvItem({.name = varinv, .value = val, .icon = icon});
+        }
+    #endif
 #endif
 
 #ifndef CLASSES
@@ -135,5 +145,32 @@ private:
 #ifndef SPC_DEFINES
 
 // deadass forgor, i still cant fucking remember what i needa write here btw.
+
+#endif
+
+#ifndef TEXTURES
+
+inline Texture2D food_001;
+inline Texture2D red_coin_002;
+inline Texture2D apple_003;
+inline Texture2D gold_coin_004;
+
+#endif
+
+#ifndef TEXTURE_LOADING
+
+inline void loadalltextures() {
+    food_001 = LoadTexture("assets/icons/food-001.png");
+    red_coin_002 = LoadTexture("assets/icons/red-coin-002.png");
+    apple_003 = LoadTexture("assets/icons/apple-003.png");
+    gold_coin_004 = LoadTexture("assets/icons/gold-coin-004.png");
+}
+
+inline void unloadalltextures() {
+    UnloadTexture(food_001);
+    UnloadTexture(red_coin_002);
+    UnloadTexture(apple_003);
+    UnloadTexture(gold_coin_004);
+}
 
 #endif

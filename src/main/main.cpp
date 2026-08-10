@@ -2,8 +2,9 @@
 
 int main() {
     InitWindow(W_WIDTH, W_HEIGHT, W_TITLE);
+    SetConfigFlags(FLAG_VSYNC_HINT | FLAG_MSAA_4X_HINT);
     // gonna test load smth;
-    Texture2D food_001 = LoadTexture("assets/icons/food-001.png");
+    loadalltextures();
     SetTargetFPS(W_FPS);
 
     while (!WindowShouldClose()) {
@@ -12,7 +13,7 @@ int main() {
         DrawTexturePro(
             food_001,
             Rectangle{0, 0, (float)food_001.width, (float)food_001.height},
-            Rectangle{400, 500, 128, 128},
+            Rectangle{W_WIDTH / W_CALC_WIDTH, W_HEIGHT / W_CALC_HEIGHT, 128, 128},
             Vector2{0, 0},
             0.0f,
             WHITE
@@ -20,7 +21,7 @@ int main() {
         EndDrawing();
     }
 
-    UnloadTexture(food_001);
+    unloadalltextures();
     CloseWindow();
     return 0;
 }

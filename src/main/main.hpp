@@ -52,7 +52,7 @@ struct ShopStr {
     int max_shop_items;
     #define SH_WIDTH 400
     #define SH_HEIGHT 600
-    #define MAX_CUR_ITEMS_STOCK 14 // 14 items in stock out of 32 total items; (msg for later me its better to switch to rand())
+    #define MAX_CUR_ITEMS_STOCK rand() % 2 - 14 // 14 items in stock out of 32 total items; (msg for later me its better to switch to rand())
 };
 
 #endif
@@ -98,7 +98,7 @@ namespace Inventory_n {
 
 class World {
 public:
-
+    void generate_Blocks();
 private:
 };
 
@@ -114,7 +114,7 @@ public:
     void player_health();
 
     void draw_health_bar();
-    void take_damage(float health);
+    void take_damage(float amount);
 
     float GetGravity() const { return gravity_p; }
     float GetHealth() const { return health; }

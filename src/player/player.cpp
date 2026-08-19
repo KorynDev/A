@@ -17,6 +17,19 @@ void Player::player_movement(float dt) {
 //     }
 // }
 
+void Player::player_health() {
+    health = 100;
+    ratio = 2;
+    combined = (health / ratio) - 2;
+    if (health > 100) {
+        std::cerr << "alive" << std::endl;
+    }
+}
+
+void Player::take_damage(float amount) {
+    health -= amount;
+}
+
 void Player::draw_health_bar() {
     // 1. Draw your background placeholder
     DrawRectangle(0, 630, 360, 40, BROWN);
